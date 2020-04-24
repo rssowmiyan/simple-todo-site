@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+<!-- {% bootstrap_messages %} -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<style>
+    
+        body{background: linear-gradient(to right, #134e5e, #71b280);}
+    
+</style>
+<body>
+
+
+    <div class="d-flex align-items-center" style="height: 100vh;">
+
+        <div class="container" >
+
+            <div class="d-flex justify-content-center">
+
+                <div class="col-md-6">
+
+                    <div class="card rounded-0 shadow">
+
+                        <div class="card-body">
+
+                            <h3>Sign Up</h3>
+
+                            <form action="register" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputfname">Full Name: </label>
+
+                                    <input type="text" name='fullname' class="form-control" id="exampleInputfname" placeholder="Enter full name">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail">Email address:</label>
+
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputname">Username: </label>
+
+                                    <input type="text" name="username" class="form-control" id="exampleInputname" placeholder="Enter username">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">Password: </label>
+
+                                    <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword2">Confirm Password:</label>
+
+                                    <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Password">
+
+                                </div>
+
+                                <div class="form-group form-check">
+
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+
+                                    <label class="form-check-label" for="exampleCheck1">Agree to our terms and conditions</label>
+
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+    
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="alert alert-danger  alert-dismissible fade show">
+        <button type = "button" class="close" data-dismiss = "alert">x</button>  
+            {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+</body>
+</html>
+
+<!-- dismisable alert req js files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+

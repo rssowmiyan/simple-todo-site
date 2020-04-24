@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+<style>
+    body{
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+  </style>
+        <div class="row justify-content-center mt-5">
+            {% if todos %}
+            <h1>{{ todos.count }} Current Todo{{ todos.count|pluralize }}</h1>
+            {% else %}
+                <h1 style="font-size:30px" >Looks like you have no todos &#129488;</h1>
+            {% endif %}
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="list-group">
+                {% for todo in todos %}
+            <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo|truncatechars:20 }}{% endif %}</a>
+            {% endfor %}
+            </div>
+        </div>
+        
+{% endblock %}
+ 
+
+

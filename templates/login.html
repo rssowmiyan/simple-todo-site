@@ -1,0 +1,66 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIN</title>
+</head>
+<style>
+  body{background: linear-gradient(to right, #134e5e, #71b280);}
+  
+</style>
+<body>
+  <div class="d-flex align-items-center" style="height: 90vh;">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="col-md-6">
+          <div class="card rounded-0 shadow">
+  
+            <div class="card-body">
+  
+                <h3>login</h3>
+  
+            <form method="POST" action='{% url "loginuser" %}'>
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="extext">Username</label>
+                <input type="text" name='username' class="form-control" id="extext"  placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <hr style="border-top: 1px solid;">
+    <div class="text-center">
+        Need an account? <a style="text-decoration: none;" href="{% url 'register' %}"><b class="text-dark">Sign Up here</b></a>
+    </div>
+
+  <!-- {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="alert alert-danger  alert-dismissible fade show">
+          <button type = "button" class="close" data-dismiss = "alert">x</button>  
+              {{ message }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %} -->
+  
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</html>
+

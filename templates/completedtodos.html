@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+<style>
+    body{
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+  </style>
+<div class="row justify-content-center mt-5">
+    <h1>Completed Todos</h1>
+</div>
+<div class="row justify-content-center mt-5">
+    <ul>
+        <!-- li if a  -->
+        {% for todo in todos %}
+        <li>            
+            <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b> -- Completed {{ todo.datecompleted|date:'D M y g:i:A' }}</a>
+        </li>
+        {% endfor %}
+    
+</ul>
+
+</div>
+
+
+{% endblock %}
